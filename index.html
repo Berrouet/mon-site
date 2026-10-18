@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="L'instant présent, Gestalt-thérapie à Andernos-les-Bains. Un espace d'écoute, de présence et d'accompagnement dans un cadre bienveillant.">
+
+  <meta name="theme-color" content="#f7f4ee">
+
+  <title>L'instant présent | Gestalt-thérapie à Andernos</title>
+
+  <style>
+    /* =========================================
+       1. VARIABLES ET BASE DU SITE
+    ========================================= */
+
+    :root {
+      --cream: #f7f4ee;
+      --white: #fffdf8;
+      --sage: #dce3d5;
+      --sage-dark: #b7c5b0;
+      --green: #536956;
+      --green-dark: #334b3d;
+      --terracotta: #ebc7a8;
+      --ink: #243b34;
+      --text: #64746c;
+      --border: #e5e0d6;
+
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 72px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      margin: 18px 0;
+    }
+
+    .section-text {
+      color: var(--text);
+      font-size: 15px;
+      max-width: 620px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 52px;
+      padding: 14px 24px;
+      background: var(--green);
+      color: white;
+      border: 1px solid var(--green);
+      border-radius: 3px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.25s, transform 0.25s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .button-outline:hover {
+      color: white;
+    }
+
+    /* =========================================
+       2. NAVIGATION
+    ========================================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navigation {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 27px;
+      letter-spacing: -0.045em;
+    }
+
+    .brand-subtitle {
+      margin-top: 7px;
+      font-size: 10px;
+      letter-spacing: 0.29em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 5vw, 76px);
+    }
+
+    .nav-links > a:not(.button) {
+      font-size: 14px;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-links > a:not(.button):hover {
+      color: var(--green);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--green-dark);
+      font-size: 23px;
+      padding: 4px 12px;
+      cursor: pointer;
+    }
+
+    /* =========================================
+       3. ACCUEIL
+    ========================================= */
+
+    .hero {
+      padding: 92px 0 100px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: clamp(48px, 8vw, 110px);
+    }
+
+    .hero-content {
+      max-width: 570px;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(43px, 5.2vw, 68px);
+      font-weight: 400;
+      line-height: 1.13;
+      letter-spacing: -0.055em;
+      margin: 28px 0 25px;
+    }
+
+    .hero h1 em {
+      color: var(--green);
+      font-weight: 400;
+    }
+
+    .hero-description {
+      max-width: 475px;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.9;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-size: 12px;
+      margin-top: 29px;
+    }
+
+    .hero-location span {
+      color: var(--green);
+      font-size: 17px;
+    }
+
+    /* Illustration inspirée de ta capture */
+
+    .hero-art {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      justify-self: center;
+      height: 500px;
+      overflow: hidden;
+      background: var(--sage);
+      border-radius: 48% 48% 0 0;
+    }
+
+    .sun {
+      position: absolute;
+      top: 15%;
+      left: 24%;
+      width: 52%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--terracotta);
+    }
+
+    .horizon {
+      position: absolute;
+      left: -12%;
+      bottom: 13%;
+      width: 124%;
+      height: 43%;
+      border-radius: 50% 50% 0 0;
+      background: var(--sage-dark);
+    }
+
+    .art-caption {
+      position: absolute;
+      bottom: 5%;
+      left: 6%;
+      right: 6%;
+      padding: 7px 5px;
+      text-align: center;
+      background: var(--cream);
+      font-family: var(--serif);
+      font-size: clamp(16px, 2vw, 22px);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* =========================================
+       4. INTRODUCTION
+    ========================================= */
+
+    .introduction {
+      padding: 100px 0;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .introduction-inner {
+      max-width: 790px;
+      margin: auto;
+    }
+
+    .introduction h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.5vw, 53px);
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 23px 0;
+    }
+
+    .introduction h2 em {
+      color: var(--green);
+    }
+
+    .introduction p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    /* =========================================
+       5. APPROCHE GESTALT
+    ========================================= */
+
+    .approach {
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 55px;
+      text-align: center;
+    }
+
+    .section-heading .section-text {
+      margin-inline: auto;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .approach-card {
+      padding: 35px 29px;
+      min-height: 280px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .approach-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #243b340b;
+    }
+
+    .card-number {
+      font-family: var(--serif);
+      font-size: 17px;
+      color: #a87558;
+    }
+
+    .approach-card h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      line-height: 1.3;
+      font-weight: 400;
+      margin: 26px 0 15px;
+    }
+
+    .approach-card p {
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* =========================================
+       6. PRÉSENTATION DU CABINET
+    ========================================= */
+
+    .cabinet {
+      padding: 95px 0;
+      background: #e9e7dc;
+    }
+
+    .cabinet-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .cabinet-art {
+      min-height: 400px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .cabinet-shape {
+      width: 78%;
+      height: 350px;
+      border-radius: 48% 48% 2px 2px;
+      background: var(--green);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .cabinet-shape svg {
+      width: 70%;
+      height: auto;
+    }
+
+    .cabinet-stamp {
+      position: absolute;
+      right: -5px;
+      bottom: 15px;
+      width: 118px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1px solid #d8d5c9;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.35;
+      transform: rotate(7deg);
+    }
+
+    .cabinet-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 20px 0;
+    }
+
+    .cabinet-copy p {
+      color: var(--text);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .cabinet-copy .button {
+      margin-top: 8px;
+    }
+
+    /* =========================================
+       7. CITATION
+    ========================================= */
+
+    .quote {
+      padding: 100px 24px;
+      text-align: center;
+    }
+
+    .quote blockquote {
+      max-width: 850px;
+      margin: auto;
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 43px);
+      line-height: 1.4;
+      letter-spacing: -0.025em;
+    }
+
+    .quote blockquote em {
+      color: var(--green);
+    }
+
+    .quote p {
+      margin-top: 25px;
+      color: var(--text);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    /* =========================================
+       8. CONTACT
+    ========================================= */
+
+    .contact {
+      background: var(--green);
+      color: var(--white);
+      padding: 90px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 75px;
+      align-items: center;
+    }
+
+    .contact .eyebrow {
+      color: #e4e9df;
+    }
+
+    .contact h2 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 4.5vw, 55px);
+      line-height: 1.2;
+      font-weight: 400;
+      margin: 22px 0;
+    }
+
+    .contact-intro {
+      max-width: 520px;
+      color: #e5e9e2;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+
+    .contact .button {
+      background: var(--cream);
+      color: var(--green-dark);
+      border-color: var(--cream);
+    }
+
+    .contact .button:hover {
+      background: white;
+    }
+
+    .contact-card {
+      border: 1px solid #ffffff55;
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #ffffff35;
+    }
+
+    .contact-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      display: block;
+      color: #dce5d9;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contact-value {
+      display: inline-block;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+      transition: opacity 0.2s;
+    }
+
+    .contact-value:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
+
+    .contact-note {
+      font-size: 11px;
+      color: #e5e9e2;
+      margin-top: 18px;
+    }
+
+    /* =========================================
+       9. PIED DE PAGE
+    ========================================= */
+
+    .footer {
+      padding: 27px 0;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 11px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer a:hover {
+      color: var(--green);
+      text-decoration: underline;
+    }
+
+    /* =========================================
+       10. RESPONSIVE : TABLETTES ET MOBILES
+    ========================================= */
+
+    @media (max-width: 900px) {
+      .container {
+        width: calc(100% - 48px);
+      }
+
+      .hero {
+        padding: 65px 0 75px;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .hero-art {
+        height: 410px;
+      }
+
+      .cabinet-grid,
+      .contact-grid {
+        gap: 40px;
+      }
+
+      .approach-card {
+        padding: 27px 22px;
+      }
+
+      .navigation {
+        min-height: 85px;
+      }
+
+      .nav-links {
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: calc(100% - 36px);
+      }
+
+      .navigation {
+        min-height: 78px;
+        gap: 12px;
+      }
+
+      .brand-name {
+        font-size: 23px;
+      }
+
+      .brand-subtitle {
+        font-size: 8px;
+        letter-spacing: 0.2em;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 24px 20px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links > a:not(.button) {
+        padding: 5px 0;
+      }
+
+      .nav-links .button {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 53px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero h1 {
+        font-size: clamp(43px, 11vw, 60px);
+        margin-top: 22px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .hero-art {
+        width: min(100%, 390px);
+        height: 420px;
+      }
+
+      .introduction,
+      .approach,
+      .cabinet,
+      .quote {
+        padding: 68px 0;
+      }
+
+      .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .approach-card {
+        min-height: auto;
+      }
+
+      .approach-card h3 {
+        margin-top: 18px;
+      }
+
+      .cabinet-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .cabinet-art {
+        min-height: 310px;
+      }
+
+      .cabinet-shape {
+        height: 300px;
+        width: 75%;
+      }
+
+      .cabinet-stamp {
+        width: 100px;
+        height: 100px;
+        font-size: 14px;
+      }
+
+      .contact {
+        padding: 68px 0;
+      }
+
+      .contact-card {
+        padding: 23px;
+      }
+
+      .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================
+       EN-TÊTE ET MENU
+  ======================================== -->
+
+  <header class="header">
+    <div class="container navigation">
+
+      <a class="brand" href="#accueil"
+         aria-label="L'instant présent, accueil">
+        <span class="brand-name">L'instant présent</span>
+        <span class="brand-subtitle">
+          Gestalt · Andernos
+        </span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks"
+           aria-label="Navigation principale">
+        <a href="#approche">Mon approche</a>
+        <a href="#cabinet">Le cabinet</a>
+        <a href="#contact" class="button">
+          Me contacter <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- =====================================
+         SECTION ACCUEIL
+    ====================================== -->
+
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">Un espace pour vous</div>
+
+          <h1>
+            Et si vous vous accordiez un nouveau
+            <em>départ&nbsp;?</em>
+          </h1>
+
+          <p class="hero-description">
+            Parfois, la vie nous amène à traverser des périodes
+            de doute, de mal-être ou de questionnement.
+            Je vous accueille avec bienveillance pour vous aider
+            à mettre des mots sur ce que vous vivez et à avancer
+            à votre rythme.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button" href="#contact">
+              Faire le premier pas <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="button button-outline" href="#approche">
+              Mon approche
+            </a>
+          </div>
+
+          <div class="hero-location">
+            <span aria-hidden="true">⌖</span>
+            Gestalt-thérapie · Andernos-les-Bains
+          </div>
+
+        </div>
+
+
+        <!-- Illustration abstraite, sans image externe -->
+
+        <div class="hero-art"
+             role="img"
+             aria-label="Illustration abstraite aux couleurs naturelles">
+
+          <div class="sun"></div>
+          <div class="horizon"></div>
+
+          <div class="art-caption">
+            Prendre le temps d'être soi
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================
+         INTRODUCTION
+    ====================================== -->
+
+    <section class="introduction">
+      <div class="container introduction-inner">
+
+        <div class="eyebrow">L'instant présent</div>
+
+        <h2>
+          Un espace pour accueillir
+          <em>ce qui est là.</em>
+        </h2>
+
+        <p>
+          Il n'est pas toujours facile de comprendre ce que l'on
+          ressent ou de trouver sa place dans les relations.
+          La Gestalt-thérapie propose un espace pour prendre
+          du recul, écouter son expérience et mieux comprendre
+          sa manière d'être au monde.
+        </p>
+
+        <a class="button button-outline" href="#approche">
+          Découvrir la Gestalt-thérapie →
+        </a>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================
+         MON APPROCHE
+    ====================================== -->
+
+    <section class="approach" id="approche">
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="eyebrow">Mon approche</div>
+
+          <h2 class="section-title">
+            Revenir à soi, un pas après l'autre.
+          </h2>
+
+          <p class="section-text">
+            La Gestalt-thérapie s'intéresse à votre expérience
+            dans le présent, à vos émotions et à la façon dont
+            vous entrez en relation avec les autres et votre
+            environnement.
+          </p>
+
+        </div>
+
+
+        <div class="approach-grid">
+
+          <article class="approach-card">
+            <div class="card-number">01 / Écouter</div>
+
+            <h3>Déposer ce qui pèse</h3>
+
+            <p>
+              Prendre le temps de mettre des mots sur ce que
+              vous traversez, dans un cadre d'écoute,
+              de respect et sans jugement.
+            </p>
+          </article>
+
+
+          <article class="approach-card">
+            <div class="card-number">02 / Ressentir</div>
+
+            <h3>Accueillir ses émotions</h3>
+
+            <p>
+              Porter attention à vos ressentis, à vos besoins
+              et aux réactions qui se manifestent dans
+              votre vie quotidienne.
+            </p>
+          </article>
+
+
+          <article class="approach-card">
+            <div class="card-number">03 / Explorer</div>
+
+            <h3>Ouvrir des possibles</h3>
+
+            <p>
+              Mieux comprendre vos habitudes relationnelles
+              et explorer progressivement de nouvelles façons
+              d'être en lien avec vous-même et les autres.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================
+         PRÉSENTATION DU CABINET
+    ====================================== -->
+
+    <section class="cabinet" id="cabinet">
+      <div class="container cabinet-grid">
+
+        <div class="cabinet-art">
+
+          <div class="cabinet-shape">
+
+            <svg viewBox="0 0 220 250"
+                 fill="none"
+                 aria-hidden="true">
+
+              <path
+                d="M110 230V45
+                   M110 135C75 125 56 98 55 69
+                   C87 75 108 103 110 135
+                   M110 100C143 88 160 63 158 35
+                   C129 42 112 68 110 100
+                   M110 178C78 169 58 148 53 123
+                   C84 128 105 151 110 178
+                   M110 157C141 144 158 121 163 94
+                   C135 102 114 127 110 157"
+                stroke="#f7f4ee"
+                stroke-width="2.5"
+                stroke-linecap="round"/>
+
+              <path
+                d="M73 230H148"
+                stroke="#ebc7a8"
+                stroke-width="2"/>
+
+            </svg>
+
+          </div>
+
+          <div class="cabinet-stamp">
+            À votre<br>rythme<br>✳
+          </div>
+
+        </div>
+
+
+        <div class="cabinet-copy">
+
+          <div class="eyebrow">Le cabinet</div>
+
+          <h2>
+            Un espace où vous pouvez être vous-même.
+          </h2>
+
+          <p>
+            Il n'est pas nécessaire de savoir exactement
+            ce que vous cherchez avant de commencer.
+            Vous pouvez venir avec une question, une difficulté
+            relationnelle, une période de transition ou
+            simplement l'envie de mieux vous comprendre.
+          </p>
+
+          <p>
+            Les séances offrent un temps pour ralentir,
+            faire le point et explorer ce qui a besoin
+            d'être entendu, à votre rythme.
+          </p>
+
+          <p>
+            Chaque parcours est singulier. Le premier échange
+            permet de faire connaissance et de voir ensemble
+            si cet accompagnement vous convient.
+          </p>
+
+          <a class="button button-outline" href="#contact">
+            Échanger avant une séance →
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================
+         CITATION
+    ====================================== -->
+
+    <section class="quote">
+      <div class="container">
+
+        <blockquote>
+          « Prendre le temps de se rencontrer,
+          c'est déjà commencer à
+          <em>s'écouter autrement.</em> »
+        </blockquote>
+
+        <p>L'instant présent · Gestalt-thérapie</p>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================
+         CONTACT
+    ====================================== -->
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+
+        <div class="contact-content">
+
+          <div class="eyebrow">Prendre contact</div>
+
+          <h2>
+            Et si nous prenions un premier temps pour en parler&nbsp;?
+          </h2>
+
+          <p class="contact-intro">
+            Une première prise de contact permet de poser
+            vos questions et de voir si cet accompagnement
+            correspond à votre besoin.
+          </p>
+
+          <!-- Le bouton ouvre un nouveau courriel -->
+
+          <a
+            class="button"
+            href="mailto:francoiseberrouet2@gmail.com?subject=Prise%20de%20contact%20-%20Gestalt-therapie">
+
+            Me contacter <span aria-hidden="true">↗</span>
+
+          </a>
+
+        </div>
+
+
+        <aside class="contact-card">
+
+          <h3>Mes coordonnées</h3>
+
+          <div class="contact-item">
+            <span class="contact-label">Activité</span>
+            <span class="contact-value">
+              Gestalt-thérapie
+            </span>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Localisation</span>
+            <span class="contact-value">
+              Andernos-les-Bains
+            </span>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">E-mail</span>
+
+            <a class="contact-value"
+               href="mailto:francoiseberrouet2@gmail.com">
+              francoiseberrouet2@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Téléphone</span>
+
+            <a class="contact-value"
+               href="tel:+33662215193">
+              06 62 21 51 93
+            </a>
+          </div>
+
+          <p class="contact-note">
+            Pour toute demande d'information ou de premier
+            échange, vous pouvez me contacter par e-mail
+            ou par téléphone.
+          </p>
+
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =======================================
+       PIED DE PAGE
+  ======================================== -->
+
+  <footer class="footer">
+    <div class="container footer-row">
+
+      <p>
+        © <span id="year"></span>
+        L'instant présent · Gestalt-thérapie
+      </p>
+
+      <div class="footer-links">
+        <a href="#accueil">Retour en haut ↑</a>
+        <a href="mailto:francoiseberrouet2@gmail.com">
+          Contact
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =======================================
+       JAVASCRIPT
+  ======================================== -->
+
+  <script>
+    // Met automatiquement à jour l'année du pied de page.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Ouvre et ferme le menu sur les petits écrans.
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Fermer le menu" : "Ouvrir le menu"
+      );
+
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+
+    // Ferme le menu après avoir sélectionné une rubrique.
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
